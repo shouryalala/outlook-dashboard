@@ -86,6 +86,10 @@ h5 {
   padding: 20px 10px;
   min-height: 50px;
 }
+.siteUtils li{
+  display: inline;
+}
+
 .dropdown-menu {
   border: medium none;
   border-radius: 3px;
