@@ -18,4 +18,13 @@ export class Navigation implements OnInit {
     activeRoute(routename: string): boolean{
         return this.router.url.indexOf(routename) > -1;
     }
+
+    toggleDropdownx(): void{
+        jQuery('#hiddenx').show();
+        // For smoothly turn on menu
+        setTimeout(
+            function () {
+                jQuery('#hiddenx').fadeIn(400);
+            }, 200);
+    }
 }

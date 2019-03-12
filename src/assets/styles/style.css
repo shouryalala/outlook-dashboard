@@ -86,6 +86,9 @@ h5 {
   padding: 20px 10px;
   min-height: 50px;
 }
+.siteUtils{
+  display: inline;
+}
 .siteUtils li{
   display: inline;
 }
