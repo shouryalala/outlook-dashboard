@@ -3,7 +3,7 @@ $(function() {
     var authEndpoint = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?';
     var redirectUri = 'http://localhost:4200/abctest';
     var appId = '873c9d01-6a19-4402-86e9-ee913e406d2e';
-    var scopes = 'openid profile User.Read Mail.Read';
+    var scopes = 'openid profile User.Read Mail.Read Calendars.Read';
     //var graph = require('@microsoft/microsoft-graph-client');
 
     // Check for browser support for sessionStorage

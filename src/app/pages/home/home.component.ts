@@ -4,6 +4,7 @@
 import {OnInit, Component} from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Email } from "app/models/email";
+import { Calendar } from "app/models/calendar";
 //declare function notify(message:string):any;
 
 @Component({
@@ -13,11 +14,14 @@ import { Email } from "app/models/email";
 })
 export class HomeComponent implements OnInit {
     emails:Email[] = new Array();
+    calendars:Calendar[] = new Array();
+    auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAYjl8gDi5R99mLmwEWzbv9KxvPbnBz6i/IKWCU/qOBN7pA6E/s9QryqxvQTZ7vXmplIYeIl0AgHcVLZVHJ66q9TJdOyv26tmCjuay%2bqNA06O2BssPFgeBXE2y1sz1fwAkT3Xi5CdbGEAGERuq/UGg7v9h62uZOxGTl1QmEjzpSskskaubl2Mzdh25%2bcjUBsTls6WvqRBArCM6fOvF/%2bdL2r5tFpFy3ATtNd26D3p6VjoODZG7TSYvVQlr9F5RiR0I6QiyOpnZFgbn50x1YHzOBTmcLZ/QIcOPHOvTgm5FCkfcHObOuTY/aZyVqXLFe/L9iMe4tt8NblVS7zoizOhPJ0DZgAACK1BXjlddqP1QAKMfKNmXkFq/LeEWXx1JLWEBrAOwAq6%2bOaxdp6jn%2bRI3qDcGlRDq6GjmgLfCDuXD6kDQoIlEvA9TDnQOGJa/tnkiRVSZnC8uROpjE8q5V51hdonWIetuYFv90e4hROwdcQ5LI4eO%2bXyv2HuUaIaxjBlTD/1j1PHKl/wWY4kp1DgAgxXLA017ZFnxgQnIjZE3THM4VvKz%2bvyYdOIZoilsdNwvB3CpT%2bCxlTHrkkmsg5GQTEHAyffahIXZk1dt0ZBzqIJBHGE0JrPFaiyKy1EcKZfEVNU1KW53AI8LqbzPl%2bobV8hEk/qPanPrklOKgJ8%2bSwh7cd/apkwMyZqz6H1yE4ZOWHfTZvDclwGdV2N68VeIMsnS3yDdsM3QB/7AIgEhJqbzjBf0W51/jKlQdRQvC6p9CF9Rs1gGKYS2ClaVuVnUTXGL03nqqVImXXNw5tIl3z9dsJzphzhStalmNW2fGkiO9xsfMN/Dma57YL754iUnCX7UT7jOgIJgmmQ9MB8Z6CtYDe8NDdV0TD08jPKwwx%2bpXwexMdIxLj%2bfATPQE5wS%2bw3ectnpAXTkCfVjcCICKKalYkMB9CU7Tv19kP1fqRBSc415eRtRs4CQe1pOLPGIpneg4br2cAT0xlRHjJlS/cMtQe7ibrIfjCOexUfcAzXj9m9LS0cmz3Em55S5d7glCFPctYvWTM6zknvB24E3mz2z5HYqqsEps/fQOP1xlBffVDwPvJbxcGc1Kubdbno76wLjza5xhUYHZWi/qe7a6yCAg%3d%3d";
     constructor(private httpClient: HttpClient) {         
     }
     heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
     ngOnInit() {        
-    this.showmehow();
+    this.getAndSetEmails();
+    this.getAndSetCalendarevents();
     }
 
     showEmails(): Boolean {
@@ -30,17 +34,28 @@ export class HomeComponent implements OnInit {
             return false;
         }
     }
-    public showmehow() {
+
+    showCalendars(): Boolean {
+        if (this.calendars && this.calendars.length > 0) {
+            console.log(this.calendars);
+            return true;
+        }
+        else {
+            console.log('ERRORR ---------');
+            return false;
+        }
+    }
+
+    public getAndSetEmails() {
         //console.log(sessionStorage.getItem('accessToken'));   
-        //const auth_token = 'Bearer ' + sessionStorage.getItem('accessToken');
-        const auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAccgB/fLnfK9RUEXuz68WMayiv60Wo/ipuq5GTsIHAXQqZPVW56TNpxVBtU/djs8v9nXTL/xN6EpQ8lygzqTx0VNH84oHOmQfJol1y0qu/vEQ1cTDKhKY3gjtOkF6VEVH6VNDiNwzvKg2ShMRFNNBW500fziWnoVEuZ0INfBOVJnnJzRKVjCMPP9sSgHJg1uj%2bRoXJ1Iyv3E5KGDXtiaZkpxYKKdmAiJ4yUFKmDAFGDYTCuC2/Ff%2bT%2b3uDwfZ0A1vgTCrct6OZqZT8qP8aHE3ykybD5U7uH%2bxIY/2h8XlV4j6HK8pTHVRO3CEpnl3lYVWk6F9xlDCC2CwSIzfUsgqkYDZgAACAHx3OpF9yTNQAJTC/WPG7Hy3en1t85dc8p4lczuonxx6zgkB6%2b0/1L4h0dG7akNmRJcjTMQoJaclvSZup3QSomYBTlGZSV/BOWFj7EoAGtnJDwDs2WZ3qemiPR8%2bXwmghipP4/r6Jf/0R9xyKuqfiWSPa/gFqA6SeS3rLBX0GmOyHQ/987m718BzrWPHx3yrbTz6Ox2kYiwNxypdqPBQUSTXLdqvDvefv4PAYMYaVMWAoQMHvjM5yDKCdQ0XhOI8klarj3bQfkJiCDBFyImIlCaYlawZwqmewk3dijaZ5Zuh6he3apSCdEdXULkZmTB4OeEf8/GaWAHMgM%2bl1q9TdL3ojmbSqIxCdNO9G/SmwiwvUTXHP8vJWIfEUSUHIfcoo7Wo90w090NKurVNW0JnzGoSAXANLBab99oEQaFXzAhG%2b3swCrW%2b77H%2beUaWnMmZ9mLz0e8kvlsiYaJsF6%2bMDaeMbCUPqJ22kwg%2bZ3iND0nJeTvX%2bWTHTYmshu/r1PsR501Fb9DxCfFOSt90hqYcwzNOeGfh4T7umwm1aESemLY6gas7t3EA/jIPKJmchkIQtNquuLRLfBZEBBh60VByzvJTYe/xtmBdjS/OWvBZNU3jOs8JVKzJ2jaZQYzgpN2u5VxK7E5wgqaOWm%2bmKE4vutPY1rI68TMyBLUNn3HClzwkN1zF8JLzv1WmgukGn0QboHX5klxamtWYUm2T/NEyM2EtUzf56ytl1OjlgVJYodh%2bkhIjkTDekEj61IufRQ5FYMempWWHvZ7K1iCAg%3d%3d";
-        console.log("Auth: " + auth_token);
+        //const auth_token = 'Bearer ' + sessionStorage.getItem('accessToken');        
+        console.log("Auth: " + this.auth_token);
         //'Origin': 'http://localhost:4200',
         //'Referer': 'http://localhost:4200/',
         //'SdkVersion': 'graph-js-1.2.0',
         //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
         const headersDict = {
-          'Authorization': auth_token,      
+          'Authorization': this.auth_token,      
         }        
         const url =  "https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$top=10&$select=subject,from,receivedDateTime,isRead&$orderby=receivedDateTime%20DESC";
         const reqOptions = {
@@ -74,5 +89,43 @@ export class HomeComponent implements OnInit {
         (err)=> {
           console.log("Eror:" + err);
         });
+      }
+
+      public getAndSetCalendarevents() {
+        const headersDict = {
+            'Authorization': this.auth_token,      
+          }        
+          const url =  "https://graph.microsoft.com/v1.0/me/events?$top=10&$select=subject,start,end,createdDateTime&$orderby=createdDateTime%20DESC";
+          const reqOptions = {
+            headers: new HttpHeaders(headersDict),
+          };
+          //console.log("" + );
+          this.httpClient.get(url, reqOptions).subscribe((res)=>{
+            //console.log(res);
+            //var items = JSON.stringify(res);
+            console.log(res);
+            let calResponse = res as any;
+            var i = 0;
+            //console.log(emailResponse.value);
+            calResponse.value.forEach(element => {
+                const d:Date = new Date(element.start.dateTime);
+                const e:Date = new Date(element.end.dateTime);
+                
+
+                this.calendars[i] = new Calendar(element.subject, d.toLocaleTimeString() , e.toLocaleTimeString());
+            });
+            
+            //notify("works!");
+  
+             /* $('#inbox-status').text('Here are the 10 most recent messages in your inbox.');
+              var templateSource = $('#msg-list-template').html();
+              var template = Handlebars.compile(templateSource);
+  
+              var msgList = template({messages: messages});
+              $('#message-list').append(msgList);*/
+          },
+          (err)=> {
+            console.log("Eror:" + err);
+          });        
       }
 }
