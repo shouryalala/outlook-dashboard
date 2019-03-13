@@ -14,4 +14,8 @@ export const appRoutes=[
         path: 'others',
         loadChildren:'./pages/others/others.module#OthersModule',
     },
+    {
+        path: 'abctest',
+        loadChildren:'./pages/abctest/abctest.module#AbctestModule',
+    },
 ];
