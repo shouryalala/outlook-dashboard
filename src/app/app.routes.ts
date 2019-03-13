@@ -17,5 +17,5 @@ export const appRoutes=[
     {
         path: 'abctest',
         loadChildren:'./pages/abctest/abctest.module#AbctestModule',
-    },
+    },    
 ];

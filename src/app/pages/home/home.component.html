@@ -78,15 +78,33 @@
                 </div>
                 <div class="ibox-content">
                     <div class="feed-activity-list">
-
-                        <div class="feed-element">
-                            <div>
-                                <small class="pull-right text-navy">1m ago</small>
-                                <strong>Monica Smith</strong>
-                                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
-                                <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
-                            </div>
+                        <div *ngIf="showEmails()">
+                                <div class="feed-element" *ngFor="let email of emails">
+                                        <div>
+                                            <small class="pull-right text-navy">1m ago</small>
+                                            <strong>{{ email.from }}</strong>
+                                            <div>{{ email.subject }}</div>
+                                            <small class="text-muted">{{ email.receivedDateTime }}</small>
+                                        </div>
+                                    </div>
                         </div>
+                        <!-- Handlebars template for message list -->
+                        <!-- <script id="msg-list-template" type="text/x-handlebars-template">
+                            {{#each messages}}
+                            <div class="feed-element">
+                                <strong id="msg-from">{{this.from.emailAddress.name}}</strong>
+                                <h4 id="msg-subject">{{this.subject}}</h4>                            
+                                <div id="msg-preview">{{this.bodyPreview}}</p>
+                                <small id="msg-received" class="class="text-muted><em>Received: {{formatDate this.receivedDateTime}}</em></p>
+                            </div>
+                            {{/each}}
+                        </script> -->
+
+                        <!-- <ul>
+                                <li *ngFor="let hero of heroes">
+                                  {{ hero }}
+                                </li>
+                              </ul>
 
                         <div class="feed-element">
                             <div>
@@ -139,7 +157,7 @@
                                 <div>200 Latin words, combined with a handful</div>
                                 <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
