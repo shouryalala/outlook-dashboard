@@ -5,6 +5,7 @@ import {OnInit, Component} from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Email } from "app/models/email";
 import { Calendar } from "app/models/calendar";
+import { News } from "app/models/news";
 //declare function notify(message:string):any;
 
 @Component({
@@ -15,6 +16,8 @@ import { Calendar } from "app/models/calendar";
 export class HomeComponent implements OnInit {
     emails:Email[] = new Array();
     calendars:Calendar[] = new Array();
+    news:News[] = new Array();
+    mArticles:Array<any>;
     auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAYjl8gDi5R99mLmwEWzbv9KxvPbnBz6i/IKWCU/qOBN7pA6E/s9QryqxvQTZ7vXmplIYeIl0AgHcVLZVHJ66q9TJdOyv26tmCjuay%2bqNA06O2BssPFgeBXE2y1sz1fwAkT3Xi5CdbGEAGERuq/UGg7v9h62uZOxGTl1QmEjzpSskskaubl2Mzdh25%2bcjUBsTls6WvqRBArCM6fOvF/%2bdL2r5tFpFy3ATtNd26D3p6VjoODZG7TSYvVQlr9F5RiR0I6QiyOpnZFgbn50x1YHzOBTmcLZ/QIcOPHOvTgm5FCkfcHObOuTY/aZyVqXLFe/L9iMe4tt8NblVS7zoizOhPJ0DZgAACK1BXjlddqP1QAKMfKNmXkFq/LeEWXx1JLWEBrAOwAq6%2bOaxdp6jn%2bRI3qDcGlRDq6GjmgLfCDuXD6kDQoIlEvA9TDnQOGJa/tnkiRVSZnC8uROpjE8q5V51hdonWIetuYFv90e4hROwdcQ5LI4eO%2bXyv2HuUaIaxjBlTD/1j1PHKl/wWY4kp1DgAgxXLA017ZFnxgQnIjZE3THM4VvKz%2bvyYdOIZoilsdNwvB3CpT%2bCxlTHrkkmsg5GQTEHAyffahIXZk1dt0ZBzqIJBHGE0JrPFaiyKy1EcKZfEVNU1KW53AI8LqbzPl%2bobV8hEk/qPanPrklOKgJ8%2bSwh7cd/apkwMyZqz6H1yE4ZOWHfTZvDclwGdV2N68VeIMsnS3yDdsM3QB/7AIgEhJqbzjBf0W51/jKlQdRQvC6p9CF9Rs1gGKYS2ClaVuVnUTXGL03nqqVImXXNw5tIl3z9dsJzphzhStalmNW2fGkiO9xsfMN/Dma57YL754iUnCX7UT7jOgIJgmmQ9MB8Z6CtYDe8NDdV0TD08jPKwwx%2bpXwexMdIxLj%2bfATPQE5wS%2bw3ectnpAXTkCfVjcCICKKalYkMB9CU7Tv19kP1fqRBSc415eRtRs4CQe1pOLPGIpneg4br2cAT0xlRHjJlS/cMtQe7ibrIfjCOexUfcAzXj9m9LS0cmz3Em55S5d7glCFPctYvWTM6zknvB24E3mz2z5HYqqsEps/fQOP1xlBffVDwPvJbxcGc1Kubdbno76wLjza5xhUYHZWi/qe7a6yCAg%3d%3d";
     constructor(private httpClient: HttpClient) {         
     }
@@ -22,6 +25,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {        
     this.getAndSetEmails();
     this.getAndSetCalendarevents();
+    this.getFinanceNews();
     }
 
     showEmails(): Boolean {
@@ -38,6 +42,17 @@ export class HomeComponent implements OnInit {
     showCalendars(): Boolean {
         if (this.calendars && this.calendars.length > 0) {
             console.log(this.calendars);
+            return true;
+        }
+        else {
+            console.log('ERRORR ---------');
+            return false;
+        }
+    }
+
+    showNews(): Boolean {
+        if (this.news && this.news.length > 0) {
+            console.log(this.news);
             return true;
         }
         else {
@@ -127,5 +142,21 @@ export class HomeComponent implements OnInit {
           (err)=> {
             console.log("Eror:" + err);
           });        
+      }
+
+      public getFinanceNews() {
+        //mArticles:Array();
+        const api_key = 'bcf9c9745a204c0991e64b9e5d73f142';
+        var i =0;
+    
+        this.httpClient.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey='+ api_key).subscribe(data => {
+            this.mArticles = data['articles']
+            //console.log(data['articles']);
+            this.mArticles.forEach(element => {
+                this.news[i] = new News(element.source.name, element.title, element.url, element.urlToImage);
+                console.log(" " + element.source.name + " " + element.title);
+                i++;
+            });
+        });
       }
 }

@@ -248,7 +248,7 @@
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Small todo list</h5>
+                            <h5>Finance Updates</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -258,8 +258,35 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ibox-content">
-                            <ul class="todo-list m-t small-list">
+                        <!-- <div class="ibox-content">
+                                <h5>Today's meetings</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div> -->
+                            <div class="ibox-content">
+                                <table class="table table-hover no-margins">
+                                    <thead>
+                                    <tr>
+                                        <th>Source</th>
+                                        <th>Title</th>
+                                        <th>Checkout</th>                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody *ngIf="showNews()">
+                                    <tr *ngFor="let newz of news">
+                                        <td><small>{{ newz.source }}</small></td>
+                                        <td> {{ newz.title }}</td>
+                                        <td> {{ newz.url }}</td>                                        
+                                    </tr>  
+                                    </tbody>
+                                    </table>              
+                            <!-- <ul class="todo-list m-t small-list">
                                 <li>
                                     <a href="#" class="check-link"><i class="fa fa-check-square"></i> </a>
                                     <span class="m-l-xs todo-completed">Buy a milk</span>
@@ -291,7 +318,7 @@
                                     <a href="#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                     <span class="m-l-xs">Call to Anna for dinner</span>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
