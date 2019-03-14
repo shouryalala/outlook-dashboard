@@ -133,7 +133,6 @@
                             </div>
                         </div>
 
-
                         <div class="feed-element">
                             <div>
                                 <small class="pull-right">5m ago</small>
@@ -165,7 +164,6 @@
         </div>
 
         <div class="col-lg-8">
-
             <div class="row">
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
@@ -244,6 +242,45 @@
                             </table>
                         </div>
                     </div>
+                    <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Your todo list</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <ul class="todo-list m-t small-list">                                    
+                                    <li>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(1) === true, 'fa-square-o':isChecked(1) === false}" (click)="toggleTick(1)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(1) === true, '':isChecked(1) === false}" >Update Jiras</span>
+                                    </li>
+                                    <li>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(2) === true, 'fa-square-o':isChecked(2) === false}" (click)="toggleTick(2)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(2) === true, '':isChecked(2) === false}" >Finish Hackathon Project</span>
+                                    </li>
+                                    <li>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(3) === true, 'fa-square-o':isChecked(3) === false}" (click)="toggleTick(3)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(3) === true, '':isChecked(3) === false}" >Finish InvoiceControllerServer testing</span>
+                                        <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 mins</small>
+                                    </li>                                     
+                                    <li>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(4) === true, 'fa-square-o':isChecked(4) === false}" (click)="toggleTick(4)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}" >Be a fiduciary</span>
+                                    </li>         
+                                    <li>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(4) === true, 'fa-square-o':isChecked(4) === false}" (click)="toggleTick(4)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}" >Join Student of the Markets</span>
+                                        <small class="label label-primary"><i class="fa fa-clock-o"></i> tomorrow</small>
+                                    </li>                                                                                          
+                                </ul>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
@@ -273,16 +310,18 @@
                                 <table class="table table-hover no-margins">
                                     <thead>
                                     <tr>
-                                        <th>Source</th>
-                                        <th>Title</th>
-                                        <th>Checkout</th>                                        
+                                        <th></th>
+                                        <th></th>                                        
                                     </tr>
                                     </thead>
                                     <tbody *ngIf="showNews()">
                                     <tr *ngFor="let newz of news">
-                                        <td><small>{{ newz.source }}</small></td>
-                                        <td> {{ newz.title }}</td>
-                                        <td> {{ newz.url }}</td>                                        
+                                        <!-- <td><small>{{ newz.source }}</small></td> -->
+                                        <td>                                            
+                                            <img class="img-news-snap" src= {{newz.img_url}} alt="image">                                            
+                                        </td>
+                                        <td><a href={{newz.url}} target="_blank"> {{ newz.title }}</a></td>
+                                        <!-- <td> {{ newz.url }}</td> -->
                                     </tr>  
                                     </tbody>
                                     </table>              
@@ -324,7 +363,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                    
+                <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Transactions worldwide</h5>

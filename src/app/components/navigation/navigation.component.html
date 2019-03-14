@@ -24,36 +24,52 @@
             <li [ngClass]="{active: activeRoute('home')}">
                 <a [routerLink]="['./home']"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
             </li>            
-            <li [ngClass]="{active: activeRoute('others')}">
+            <li id="visiblew">
                     <a [routerLink]="['./others']"><i class="fa fa-cloud"></i> <span class="nav-label">My Resources</span></a>
+                    <ul id="hiddenw" class="nav metismenu">
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Accounts Payable</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Advanced People Search</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Benefits</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">BlackRock Academies</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Careers</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Company Store</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Compensation</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Compliance Resources</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Emergency Resources</span></a></li>
+                            <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Global Event Management</span></a></li>
+                        </ul>
             </li>
-            <li [ngClass]="{active: activeRoute('others')}">
+            <li id="visiblez">
                     <a [routerLink]="['./others']"><i class="fa fa-suitcase"></i> <span class="nav-label">Our Firm</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('abctest')}">
-                    <a [routerLink]="['./abctest']"><i class="fa fa-desktop"></i> <span class="nav-label">More News</span></a>
-            </li>
-            <li id="visiblex">
-                    <a [routerLink]="['./others']"><i class="fa fa-umbrella" (click)="toggleDropdownx()"></i> <span class="nav-label">Community</span></a>
-                    <ul id="hiddenx" class="nav metismenu">
-                        <li><a [routerLink]="['./others']"><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">More News</span></a></li>
-                        <li>name 2</li>
-                        <li>name 3</li>
-                        <li>name 4</li>                        
+                    <ul id="hiddenz" class="nav metismenu">
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif;  line-height: 150%; text-align:center">BlackRock Investment &nbsp;&nbsp;Institute</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Businesses Departments</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif; line-height: 150%; text-align:center">Firm Leadership &amp; &nbsp;&nbsp;Governance</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Firm Objectives</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Inclusion &amp; Diversity</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Knowing BlackRock</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Office Locations</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Social Impact</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Student of the Markets</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Student of Technology</span></a></li>
                     </ul>
             </li>
-
-            <li>
-                    <a [routerLink]="['./others']"><i class="fa "></i> <span >Slim Shady</span></a>                    
+            <li id="visibley">
+                    <a [routerLink]="['./abctest']"><i class="fa fa-desktop"></i> <span class="nav-label">More News</span></a>
+                    <ul id="hiddeny" class="nav metismenu">
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">BlackRock TV</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif; line-height: 150%; text-align:center">Leadership &nbsp;Communications</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Firm Calendar</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">News Archive</span></a></li>
+                    </ul>
             </li>
-            <li>
-                    <div class="dropdownx fa">
-                        <i class="fa fa-desktop"></i> <span class="nav-label">Mouse over me</span>
-                        <div class="dropdown-contentx">
-                            <p>Hello World!</p>
-                        </div>
-                    </div>
-            </li>
+            <li id="visiblex">
+                    <a><i class="fa fa-umbrella" (click)="toggleDropdownx()"></i> <span class="nav-label">Community</span></a>
+                    <ul id="hiddenx" class="nav metismenu">
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Employee Networks</span></a></li>
+                        <li><a><i class=""></i> <span class="nav-label" style="font-family: Arial, Helvetica, sans-serif">Professional Networks</span></a></li>                                       
+                    </ul>
+            </li>            
         </ul>
 
     </div>

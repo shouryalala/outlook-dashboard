@@ -38,6 +38,67 @@
     text-rendering: auto;
   }
 
+  #visibley:hover #hiddeny{
+    display:block;
+
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+  }
+
+  #hiddeny{
+    display:none;   
+    
+  }
+
+  #hiddeny li{
+    font: normal normal normal 20px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+  }
+  #visiblez:hover #hiddenz{
+    display:block;
+
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+  }
+
+  #hiddenz{
+    display:none;   
+    
+  }
+
+  #hiddenz li{
+    font: normal normal normal 20px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+  }
+
+  #visiblew:hover #hiddenw{
+    display:block;
+
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+  }
+
+  #hiddenw{
+    display:none;   
+    
+  }
+
+  #hiddenw li{
+    font: normal normal normal 20px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+  }
 
   .faa {
     display: inline-block;

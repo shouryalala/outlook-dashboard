@@ -1682,6 +1682,11 @@ div.dt-button-info {
 .img-circle {
   border-radius: 50%;
 }
+.img-news-snap {
+  width: 90px;
+  height: 90px;
+  border-radius: 20%;
+}
 .btn-circle {
   width: 30px;
   height: 30px;

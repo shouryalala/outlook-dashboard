@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
     calendars:Calendar[] = new Array();
     news:News[] = new Array();
     mArticles:Array<any>;
-    auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAYjl8gDi5R99mLmwEWzbv9KxvPbnBz6i/IKWCU/qOBN7pA6E/s9QryqxvQTZ7vXmplIYeIl0AgHcVLZVHJ66q9TJdOyv26tmCjuay%2bqNA06O2BssPFgeBXE2y1sz1fwAkT3Xi5CdbGEAGERuq/UGg7v9h62uZOxGTl1QmEjzpSskskaubl2Mzdh25%2bcjUBsTls6WvqRBArCM6fOvF/%2bdL2r5tFpFy3ATtNd26D3p6VjoODZG7TSYvVQlr9F5RiR0I6QiyOpnZFgbn50x1YHzOBTmcLZ/QIcOPHOvTgm5FCkfcHObOuTY/aZyVqXLFe/L9iMe4tt8NblVS7zoizOhPJ0DZgAACK1BXjlddqP1QAKMfKNmXkFq/LeEWXx1JLWEBrAOwAq6%2bOaxdp6jn%2bRI3qDcGlRDq6GjmgLfCDuXD6kDQoIlEvA9TDnQOGJa/tnkiRVSZnC8uROpjE8q5V51hdonWIetuYFv90e4hROwdcQ5LI4eO%2bXyv2HuUaIaxjBlTD/1j1PHKl/wWY4kp1DgAgxXLA017ZFnxgQnIjZE3THM4VvKz%2bvyYdOIZoilsdNwvB3CpT%2bCxlTHrkkmsg5GQTEHAyffahIXZk1dt0ZBzqIJBHGE0JrPFaiyKy1EcKZfEVNU1KW53AI8LqbzPl%2bobV8hEk/qPanPrklOKgJ8%2bSwh7cd/apkwMyZqz6H1yE4ZOWHfTZvDclwGdV2N68VeIMsnS3yDdsM3QB/7AIgEhJqbzjBf0W51/jKlQdRQvC6p9CF9Rs1gGKYS2ClaVuVnUTXGL03nqqVImXXNw5tIl3z9dsJzphzhStalmNW2fGkiO9xsfMN/Dma57YL754iUnCX7UT7jOgIJgmmQ9MB8Z6CtYDe8NDdV0TD08jPKwwx%2bpXwexMdIxLj%2bfATPQE5wS%2bw3ectnpAXTkCfVjcCICKKalYkMB9CU7Tv19kP1fqRBSc415eRtRs4CQe1pOLPGIpneg4br2cAT0xlRHjJlS/cMtQe7ibrIfjCOexUfcAzXj9m9LS0cmz3Em55S5d7glCFPctYvWTM6zknvB24E3mz2z5HYqqsEps/fQOP1xlBffVDwPvJbxcGc1Kubdbno76wLjza5xhUYHZWi/qe7a6yCAg%3d%3d";
+    happy:Boolean = true;
+    tick:Boolean[] = new Array();
+    auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAdraMEn7/UDiGahfxhGR7V2smLUgH5d6KGWSq%2brvUlwbzShgJNZ%2bvKRHiqJ90fAU6gomcsOqqO00Y45KdmQ7mNRtaFBy4ao7TVby/Y%2b9pE3Iab3RuKvZqcyAr3vT8jWbSDoSMiqfMA5z/5bptUCTSV54IntW/B%2b2H1peRALJc2oE4RAzL3s5QlSd7q6zqNPLi1XMqPS43IM/RzR%2bQItBU8g48Ee4zlF%2b7jeyWoOIhZeFa3ZOMg7ph9a22pmEohdIeIHupqKnkNKzftvSLwW/Wvww55m7dNaDfMTKuX2Bj3DdGB8SO8vgCFkTZkwZV6toStl1Q1MsEMfofqKcFe7kDbwDZgAACMIxpXLGiBpcQAIh3RFn95vXqDMQSWWzKxj6bDOzt0Rlm0YR94zCqphKZ/DXSNCfxOOt2WSPI/MsSDSfjlNKKYyuLevSJw/9kv6RRycjFb8Xc2iZKSONpTwJ5pqSnj/KCU28%2b/cdfv7KvBiq1Cm0TvRN6ZUV4%2bAtoMolJBVLpcYCu1nYrZ5PLNX6E/bYolIPz6jfQ%2blpreYyESLKS1a4ug12AVCDRgJOQyst15hgnVhOF8apIy0lhMxxmj10BTrN12RWa9Sqehs6EnltYBjCiiQiBQpHNGAPiFyKIPhWm%2byoKytb/oT6CpuJ%2b6I7FL5JW4E52t1hD1IEF7RVJt6WzepcTqKW1h4qI4awZl1d7lLDInb1Wpy5JwW%2bB6Eyu49F%2bYZqioKQRN5wu1GLac2shwgGdz2nIRaadofNnd99wlfA4C/p7hLkU3NKcwyjP3RjDEazftWzG2JpNN7R3Ynx3z4KVo/yBpHi4u/KP9FN%2bRu2JISB/4aDbo3fVhWaV1n3AoH399QcpO/e37Z6sUpF89dWmMSpS4Ocm5IC65%2bIMG/szpPWV%2bUIvZn83nWViaSTV%2bvPUIPDNFUNusZH0qxaAOXnMzeffZPRFSr2TNT7KFWpQKGX71FKjYJYclqqGUy7MpBjMrH4wXSgwtGvoEPCI6HihfidIlnqqj5u9zCfWTDI8WOXZA/18eRuTtPH1KFxOo65HWdsj5FyXKUMkGbq3ynKiEMOfMaqbhoijSuk4TeXkb4Lc6lkp1jt53kQVQL9Aglcc3VBpPQQeseCAg%3d%3d";
     constructor(private httpClient: HttpClient) {         
     }
     heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
@@ -26,6 +28,11 @@ export class HomeComponent implements OnInit {
     this.getAndSetEmails();
     this.getAndSetCalendarevents();
     this.getFinanceNews();
+
+    this.tick[1] = false;
+    this.tick[2] = true;
+    this.tick[3] = false;
+    this.tick[4] = false;
     }
 
     showEmails(): Boolean {
@@ -149,7 +156,7 @@ export class HomeComponent implements OnInit {
         const api_key = 'bcf9c9745a204c0991e64b9e5d73f142';
         var i =0;
     
-        this.httpClient.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey='+ api_key).subscribe(data => {
+        this.httpClient.get('https://newsapi.org/v2/top-headlines?sources=financial-post&apiKey='+ api_key).subscribe(data => {
             this.mArticles = data['articles']
             //console.log(data['articles']);
             this.mArticles.forEach(element => {
@@ -159,4 +166,14 @@ export class HomeComponent implements OnInit {
             });
         });
       }
+
+      public isChecked(status:number):Boolean{
+          return this.tick[status];
+      }
+
+      public toggleTick(status:number) {
+        this.tick[status] = !this.tick[status];
+      }
+
+      public checkTodo(){}
 }
