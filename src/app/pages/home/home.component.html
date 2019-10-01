@@ -1,32 +1,32 @@
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-3">            
-            <img src="/assets/img/heckithon.jpg" class="hack-banner" alt="Image" width="1800" height="500">
+            <img src="/assets/img/hecky.jpg" class="hack-banner" alt="Image" width="1800" height="500">
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-success pull-right">Monthly</span>
+                    <span class="label label-success pull-right">March</span>
                     <h5>Unread Emails</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">38</h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total income</small>
+                    <h1 class="no-margins">{{ emails.length }}</h1>
+                    <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                    <small>6 from yesterday</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-info pull-right">Annual</span>
+                    <span class="label label-info pull-right">Today</span>
                     <h5>Meetings</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">4</h1>
-                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <h1 class="no-margins">{{ calendars.length }}</h1>
+                    <!-- <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div> -->
                     <small>New orders</small>
                 </div>
             </div>
@@ -38,22 +38,22 @@
                     <h5>Messages on Symphony</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">75</h1>
-                    <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
-                    <small>8 users</small>
+                    <h1 class="no-margins">0</h1>
+                    <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
+                    <small>0 users</small>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="label label-danger pull-right">Low value</span>
+                    <span class="label label-danger pull-right">Urgent</span>
                     <h5>Todo</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">7</h1>
-                    <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
-                    <small>In first month</small>
+                    <h1 class="no-margins">5</h1>
+                    <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
+                    <small>This month</small>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="ibox-content ibox-heading">
                     <h3><i class="fa fa-envelope-o"></i> Unread Emails</h3>
-                    <small><i class="fa fa-tim"></i> You have 22 new messages and 16 waiting in draft folder.</small>
+                    <small><i class="fa fa-tim"></i> You have {{ emails.length }} new messages and 16 waiting in draft folder.</small>
                 </div>
                 <div class="ibox-content">
                     <div class="feed-activity-list">
@@ -274,13 +274,92 @@
                                         <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}" >Be a fiduciary</span>
                                     </li>         
                                     <li>
-                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(4) === true, 'fa-square-o':isChecked(4) === false}" (click)="toggleTick(4)"></i> </a>
-                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}" >Join Student of the Markets</span>
+                                        <a class="check-link"><i [ngClass]="{'fa':true===true,'fa-check-square':isChecked(5) === true, 'fa-square-o':isChecked(5) === false}" (click)="toggleTick(5)"></i> </a>
+                                        <span [ngClass]="{'m-l-s':true===true, 'todo-completed':isChecked(5) === true, '':isChecked(5) === false}" >Join Student of the Markets</span>
                                         <small class="label label-primary"><i class="fa fa-clock-o"></i> tomorrow</small>
                                     </li>                                                                                          
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Blk news</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <img class="blk_news" src="/assets/img/blk_news.jpg" alt="image"> 
+                                    <!-- <table class="table table-hover margin bottom">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 1%" class="text-center">No.</th>
+                                            <th>Transaction</th>
+                                            <th class="text-center">Date</th>
+                                            <th class="text-center">Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td> Security doors
+                                            </td>
+                                            <td class="text-center small">16 Jun 2014</td>
+                                            <td class="text-center"><span class="label label-primary">$483.00</span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td> Wardrobes
+                                            </td>
+                                            <td class="text-center small">10 Jun 2014</td>
+                                            <td class="text-center"><span class="label label-primary">$327.00</span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td> Set of tools
+                                            </td>
+                                            <td class="text-center small">12 Jun 2014</td>
+                                            <td class="text-center"><span class="label label-warning">$125.00</span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td> Panoramic pictures</td>
+                                            <td class="text-center small">22 Jun 2013</td>
+                                            <td class="text-center"><span class="label label-primary">$344.00</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td>Phones</td>
+                                            <td class="text-center small">24 Jun 2013</td>
+                                            <td class="text-center"><span class="label label-primary">$235.00</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td>Monitors</td>
+                                            <td class="text-center small">26 Jun 2013</td>
+                                            <td class="text-center"><span class="label label-primary">$100.00</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table> -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <div id="world-map" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
@@ -364,7 +443,7 @@
             </div>
             <div class="row">
                     
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Transactions worldwide</h5>
@@ -445,7 +524,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
 
 
     </div>

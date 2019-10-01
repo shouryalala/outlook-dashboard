@@ -1685,8 +1685,19 @@ div.dt-button-info {
 .img-news-snap {
   width: 90px;
   height: 90px;
-  border-radius: 20%;
+  border-radius: 20%;  
+  border: 0.5px
 }
+
+.img-news-snap:hover{
+  box-shadow: 0 0 2px 1px rgba(0,0,0,0.5)
+}
+
+.blk_news{
+  margin-left: -25px;
+  width:550px;
+}
+
 .btn-circle {
   width: 30px;
   height: 30px;

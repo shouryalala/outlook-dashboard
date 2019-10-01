@@ -1,0 +1,731 @@
+webpackJsonp([4,7],{
+
+/***/ 129:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./pages/abctest/abctest.module": [
+		326,
+		0
+	],
+	"./pages/others/others.module": [
+		327,
+		1
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+module.exports = webpackAsyncContext;
+webpackAsyncContext.id = 129;
+
+
+/***/ }),
+
+/***/ 130:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(151);
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 142:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(10);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AppComponent = (function () {
+    function AppComponent() {
+        this.loginInfo = {
+            first_name: 'Shourya',
+            last_name: 'Lala',
+            avatar: 'ay.jpeg',
+            title: 'Analyst'
+        };
+    }
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Component */])({
+        selector: 'app-root',
+        template: __webpack_require__(229),
+        styles: [__webpack_require__(211)]
+    })
+], AppComponent);
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 143:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export correctHeight */
+/* unused harmony export detectBody */
+/* harmony export (immutable) */ __webpack_exports__["a"] = smoothlyMenu;
+/*
+ * Inspinia js helpers:
+ *
+ * correctHeight() - fix the height of main wrapper
+ * detectBody() - detect windows size
+ * smoothlyMenu() - add smooth fade in/out on navigation show/ide
+ *
+*/
+function correctHeight() {
+    var pageWrapper = jQuery('#page-wrapper');
+    var navbarHeigh = jQuery('nav.navbar-default').height();
+    var wrapperHeigh = pageWrapper.height();
+    if (navbarHeigh > wrapperHeigh) {
+        pageWrapper.css("min-height", navbarHeigh + "px");
+    }
+    if (navbarHeigh < wrapperHeigh) {
+        if (navbarHeigh < jQuery(window).height()) {
+            pageWrapper.css("min-height", jQuery(window).height() + "px");
+        }
+        else {
+            pageWrapper.css("min-height", navbarHeigh + "px");
+        }
+    }
+    if (jQuery('body').hasClass('fixed-nav')) {
+        if (navbarHeigh > wrapperHeigh) {
+            pageWrapper.css("min-height", navbarHeigh + "px");
+        }
+        else {
+            pageWrapper.css("min-height", jQuery(window).height() - 60 + "px");
+        }
+    }
+}
+function detectBody() {
+    if (jQuery(document).width() < 769) {
+        jQuery('body').addClass('body-small');
+    }
+    else {
+        jQuery('body').removeClass('body-small');
+    }
+}
+function smoothlyMenu() {
+    if (!jQuery('body').hasClass('mini-navbar') || jQuery('body').hasClass('body-small')) {
+        // Hide menu in order to smoothly turn on when maximize menu
+        jQuery('#side-menu').hide();
+        // For smoothly turn on menu
+        setTimeout(function () {
+            jQuery('#side-menu').fadeIn(400);
+        }, 200);
+    }
+    else if (jQuery('body').hasClass('fixed-sidebar')) {
+        jQuery('#side-menu').hide();
+        setTimeout(function () {
+            jQuery('#side-menu').fadeIn(400);
+        }, 100);
+    }
+    else {
+        // Remove all inline style from jquery fadeIn function to reset menu state
+        jQuery('#side-menu').removeAttr('style');
+    }
+}
+//# sourceMappingURL=app.helpers.js.map
+
+/***/ }),
+
+/***/ 144:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_topnavbar_topnavbar_component__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_navigation_navigation_component__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routes__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home_component__ = __webpack_require__(81);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+//import { AbctestComponent } from './abctest/abctest.component';
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__components_navigation_navigation_component__["a" /* Navigation */],
+            __WEBPACK_IMPORTED_MODULE_6__components_topnavbar_topnavbar_component__["a" /* Topnavbar */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_home_home_component__["a" /* HomeComponent */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_routes__["a" /* appRoutes */])
+        ],
+        providers: [],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 145:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_home_home_component__ = __webpack_require__(81);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appRoutes; });
+
+var appRoutes = [
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: __WEBPACK_IMPORTED_MODULE_0__pages_home_home_component__["a" /* HomeComponent */]
+    },
+    {
+        path: 'others',
+        loadChildren: './pages/others/others.module#OthersModule',
+    },
+    {
+        path: 'abctest',
+        loadChildren: './pages/abctest/abctest.module#AbctestModule',
+    },
+];
+//# sourceMappingURL=app.routes.js.map
+
+/***/ }),
+
+/***/ 146:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_login__ = __webpack_require__(150);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Navigation; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/**
+ * Created by andrew.yang on 2/6/2017.
+ */
+
+
+
+var Navigation = (function () {
+    function Navigation(router) {
+        this.router = router;
+    }
+    Navigation.prototype.ngOnInit = function () { };
+    Navigation.prototype.activeRoute = function (routename) {
+        return this.router.url.indexOf(routename) > -1;
+    };
+    Navigation.prototype.toggleDropdownx = function () {
+        jQuery('#hiddenx').show();
+        // For smoothly turn on menu
+        setTimeout(function () {
+            jQuery('#hiddenx').fadeIn(400);
+        }, 200);
+    };
+    return Navigation;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Input */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_login__["a" /* Login */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_login__["a" /* Login */]) === "function" && _a || Object)
+], Navigation.prototype, "loginInfo", void 0);
+Navigation = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Component */])({
+        selector: 'navigation',
+        template: __webpack_require__(230),
+        styles: [__webpack_require__(212)]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], Navigation);
+
+var _a, _b;
+//# sourceMappingURL=navigation.component.js.map
+
+/***/ }),
+
+/***/ 147:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers__ = __webpack_require__(143);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Topnavbar; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var Topnavbar = (function () {
+    function Topnavbar() {
+    }
+    Topnavbar.prototype.ngOnInit = function () {
+        var abc = new Date();
+        var num = abc.getDate();
+        this.date = "" + num;
+    };
+    Topnavbar.prototype.toggleNavigation = function () {
+        jQuery("body").toggleClass("mini-navbar");
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__app_helpers__["a" /* smoothlyMenu */])();
+    };
+    Topnavbar.prototype.logout = function () {
+        localStorage.clear();
+        // location.href='http://to_login_page';
+    };
+    return Topnavbar;
+}());
+Topnavbar = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Component */])({
+        selector: 'topnavbar',
+        template: __webpack_require__(231)
+    })
+], Topnavbar);
+
+//# sourceMappingURL=topnavbar.component.js.map
+
+/***/ }),
+
+/***/ 148:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Calendar; });
+var Calendar = (function () {
+    function Calendar(subject, startTime, endTime) {
+        this.subject = subject;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+    return Calendar;
+}());
+
+//# sourceMappingURL=calendar.js.map
+
+/***/ }),
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Email; });
+var Email = (function () {
+    function Email(from, rec, sub) {
+        this.from = from;
+        this.receivedDateTime = rec;
+        this.subject = sub;
+    }
+    return Email;
+}());
+
+//# sourceMappingURL=email.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
+/**
+ * Created by andrew.yang on 5/18/2017.
+ */
+var Login = (function () {
+    function Login() {
+    }
+    return Login;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 151:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false
+};
+//# sourceMappingURL=environment.js.map
+
+/***/ }),
+
+/***/ 211:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(21)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 212:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(21)();
+// imports
+
+
+// module
+exports.push([module.i, ".dropdownx {\r\n    position: relative;\r\n    display: inline-block;\r\n  }\r\n  \r\n  .dropdown-contentx {\r\n    display: none;\r\n    position: absolute;\r\n    background-color: #f9f9f9;\r\n    min-width: 160px;\r\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n    padding: 12px 16px;\r\n    z-index: 1;\r\n  }\r\n  \r\n  .dropdownx:hover .dropdown-contentx {\r\n    display: block;\r\n  }\r\n\r\n  #visiblex:hover #hiddenx{\r\n    display:block; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */\r\n    animation: fadein 0.5s;\r\n  }\r\n\r\n  #hiddenx{\r\n    display:none;   \r\n    \r\n  }\r\n\r\n  #hiddenx li{\r\n    font: normal normal normal 20px/1 FontAwesome;\r\n    font-size: inherit;\r\n    text-rendering: auto;\r\n  }\r\n\r\n  #visibley:hover #hiddeny{\r\n    display:block; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */\r\n    animation: fadein 0.5s;\r\n  }\r\n\r\n  #hiddeny{\r\n    display:none;   \r\n    \r\n  }\r\n\r\n  #hiddeny li{\r\n    font: normal normal normal 20px/1 FontAwesome;\r\n    font-size: inherit;\r\n    text-rendering: auto;\r\n  }\r\n  #visiblez:hover #hiddenz{\r\n    display:block; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */\r\n    animation: fadein 0.5s;\r\n  }\r\n\r\n  #hiddenz{\r\n    display:none;   \r\n    \r\n  }\r\n\r\n  #hiddenz li{\r\n    font: normal normal normal 20px/1 FontAwesome;\r\n    font-size: inherit;\r\n    text-rendering: auto;\r\n  }\r\n\r\n  #visiblew:hover #hiddenw{\r\n    display:block; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */\r\n    animation: fadein 0.5s;\r\n  }\r\n\r\n  #hiddenw{\r\n    display:none;   \r\n    \r\n  }\r\n\r\n  #hiddenw li{\r\n    font: normal normal normal 20px/1 FontAwesome;\r\n    font-size: inherit;\r\n    text-rendering: auto;\r\n  }\r\n\r\n  .faa {\r\n    display: inline-block;\r\n    font: normal normal normal 14px/1 FontAwesome;\r\n    font-size: inherit;\r\n    text-rendering: auto;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n    transform: translate(0, 0);\r\n  }\r\n\r\n  @keyframes fadein {\r\n    from { opacity: 0; }\r\n    to   { opacity: 1; }\r\n}\r\n\r\n/* Firefox < 16 */\r\n\r\n/* Safari, Chrome and Opera > 12.1 */\r\n\r\n/* Internet Explorer */\r\n\r\n/* Opera < 12.1 */", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 213:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(21)();
+// imports
+
+
+// module
+exports.push([module.i, "  .hack-banner{\r\n    margin-left: -20px;\r\n    margin-right: 0;\r\n    -webkit-margin-after: 20px;\r\n            margin-block-end: 20px;  \r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 229:
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"wrapper\">\n  <navigation [loginInfo]=\"loginInfo\" *ngIf=\"loginInfo\"></navigation>\n\n  <div id=\"page-wrapper\" class=\"gray-bg\">\n\n    <topnavbar></topnavbar>\n\n    <router-outlet></router-outlet>\n\n    <div class=\"footer\">\n      <div>\n        <strong>Copyright</strong> HackBlk &copy; 2019\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ 230:
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar-default navbar-static-side\" role=\"navigation\">\n    <div class=\"sidebar-collapse\">\n        <ul class=\"nav metismenu\" id=\"side-menu\">\n            <li class=\"nav-header\">\n                <div class=\"dropdown profile-element\">\n                    <span>\n                        <img alt=\"image\" class=\"img-circle\" width=\"80px\"\n                             src=\"./assets/img/slala.jpg\" />\n                    </span>\n                    <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">\n                      <span class=\"clear\">\n                          <span class=\"block m-t-xs\">\n                          <strong class=\"font-bold\">{{loginInfo.first_name}} {{loginInfo.last_name}}</strong>\n                      </span>\n                          <span class=\"text-muted text-xs block\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{loginInfo.title}}</span>\n                      </span>\n                    </a>\n                </div>\n                <div class=\"logo-element\">\n                        <img alt=\"image\" class=\"img-circle\" width=\"30px\"\n                        src=\"./assets/img/slala.jpg\" />\n                </div>\n            </li>\n            <li [ngClass]=\"{active: activeRoute('home')}\">\n                <a [routerLink]=\"['./home']\"><i class=\"fa fa-dashboard\"></i> <span class=\"nav-label\">Dashboards</span></a>\n            </li>            \n            <li id=\"visiblew\">\n                    <a [routerLink]=\"['./others']\"><i class=\"fa fa-cloud\"></i> <span class=\"nav-label\">My Resources</span></a>\n                    <ul id=\"hiddenw\" class=\"nav metismenu\">\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Accounts Payable</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Advanced People Search</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Benefits</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">BlackRock Academies</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Careers</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Company Store</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Compensation</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Compliance Resources</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Emergency Resources</span></a></li>\n                            <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Global Event Management</span></a></li>\n                        </ul>\n            </li>\n            <li id=\"visiblez\">\n                    <a [routerLink]=\"['./others']\"><i class=\"fa fa-suitcase\"></i> <span class=\"nav-label\">Our Firm</span></a>\n                    <ul id=\"hiddenz\" class=\"nav metismenu\">\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif;  line-height: 150%; text-align:center\">BlackRock Investment &nbsp;&nbsp;Institute</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Businesses Departments</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif; line-height: 150%; text-align:center\">Firm Leadership &amp; &nbsp;&nbsp;Governance</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Firm Objectives</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Inclusion &amp; Diversity</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Knowing BlackRock</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Office Locations</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Social Impact</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Student of the Markets</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Student of Technology</span></a></li>\n                    </ul>\n            </li>\n            <li id=\"visibley\">\n                    <a [routerLink]=\"['./abctest']\"><i class=\"fa fa-desktop\"></i> <span class=\"nav-label\">More News</span></a>\n                    <ul id=\"hiddeny\" class=\"nav metismenu\">\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">BlackRock TV</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif; line-height: 150%; text-align:center\">Leadership &nbsp;Communications</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Firm Calendar</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">News Archive</span></a></li>\n                    </ul>\n            </li>\n            <li id=\"visiblex\">\n                    <a><i class=\"fa fa-umbrella\" (click)=\"toggleDropdownx()\"></i> <span class=\"nav-label\">Community</span></a>\n                    <ul id=\"hiddenx\" class=\"nav metismenu\">\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Employee Networks</span></a></li>\n                        <li><a><i class=\"\"></i> <span class=\"nav-label\" style=\"font-family: Arial, Helvetica, sans-serif\">Professional Networks</span></a></li>                                       \n                    </ul>\n            </li>            \n        </ul>\n\n    </div>\n</nav>"
+
+/***/ }),
+
+/***/ 231:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div style=\"margin-top:2px;\">\n        <ul class=\"nav navbar-top-links navbar-right\">\n            <li><div>\n                    <ul class=\"siteUtils site-width\">\n                        <li class=\"corporate-link \"><span>\n                            <a href=\"/myblk/employee-complaint-hotline\" title=\"Employee Complaint Hotline\"><span class=\"\">Employee Complaint Hotline</span></a>\n                        </span></li>\n                        <li class=\"corporate-link \"><span>\n                            <a href=\"https://webster.bfm.com/viewserver/clientsite\" title=\"Green Package\" target=\"_blank\"><span class=\"\">Green Package</span></a>\n                        </span></li>\n                        <li class=\"corporate-link \"><span>\n                            <a href=\"https://webster.bfm.com/apps/Genie/Genie.jnlp\" title=\"Genie\"><span class=\"\">Genie</span></a>\n                        </span></li>\n                        <li class=\"corporate-link \"><span>\n                            <a href=\"/myblk/my-resources/wifi-instructions\" title=\"WiFi Instructions\"><span class=\"\">WiFi Instructions</span></a>\n                        </span></li>\n                        <li class=\"corporate-link \"><span>\n                            <a href=\"https://www.blackrock.com\" title=\"BlackRock.com\" target=\"_blank\"><span class=\"\">BlackRock.com</span></a>\n                        </span></li>                            \n                        <li class=\"corporate-link thumbnail-container\" id=\"my-task-container\">\n                            <a href=\"/mytask/app/dashboard/self_view\"><span class=\"fa fa-bell\"></span><span id=\"my-tasks\" ></span>\n                        </a>\n                        </li>                                    \n                    </ul>\n                </div>    \n            </li>\n        </ul>\n    </div>\n</div>\n<div class=\"row border-bottom\">\n    <nav class=\"navbar navbar-static-top white-bg\" role=\"navigation\" style=\"margin-bottom: 0; margin-top: 0px;\">\n        <div class=\"navbar-header\">\n            <a class=\"minimalize-styl-2 btn btn-primary \" (click)=\"toggleNavigation()\"><i class=\"fa fa-bars\"></i> </a>&nbsp;&nbsp;            \n            <img src=\"/assets/img/logo.jpg\" alt=\"Image\">            \n        </div>         \n        <ul class=\"nav navbar-top-links navbar-right\">       \n            <li>\n                <h2 class=\"datex\"><b>{{ date }}<sup>th</sup> March&nbsp;&nbsp;</b></h2>\n            </li>\n            <li>\n                <a (click)=\"logout()\">\n                    <i class=\"fa fa-sign-out\"></i> Log out\n                </a>\n            </li>\n        </ul>\n    </nav>\n</div>"
+
+/***/ }),
+
+/***/ 232:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper wrapper-content\">\n    <div class=\"row\">\n        <div class=\"col-lg-3\">            \n            <img src=\"/assets/img/hecky.jpg\" class=\"hack-banner\" alt=\"Image\" width=\"1800\" height=\"500\">\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-lg-3\">\n            <div class=\"ibox float-e-margins\">\n                <div class=\"ibox-title\">\n                    <span class=\"label label-success pull-right\">Monthly</span>\n                    <h5>Unread Emails</h5>\n                </div>\n                <div class=\"ibox-content\">\n                    <h1 class=\"no-margins\">{{ emails.length }}</h1>\n                    <div class=\"stat-percent font-bold text-success\">98% <i class=\"fa fa-bolt\"></i></div>\n                    <small>6 from yesterday</small>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-3\">\n            <div class=\"ibox float-e-margins\">\n                <div class=\"ibox-title\">\n                    <span class=\"label label-info pull-right\">Annual</span>\n                    <h5>Meetings</h5>\n                </div>\n                <div class=\"ibox-content\">\n                    <h1 class=\"no-margins\">{{ calendars.length }}</h1>\n                    <div class=\"stat-percent font-bold text-info\">20% <i class=\"fa fa-level-up\"></i></div>\n                    <small>New orders</small>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-3\">\n            <div class=\"ibox float-e-margins\">\n                <div class=\"ibox-title\">\n                    <span class=\"label label-primary pull-right\">Today</span>\n                    <h5>Messages on Symphony</h5>\n                </div>\n                <div class=\"ibox-content\">\n                    <h1 class=\"no-margins\">75</h1>\n                    <div class=\"stat-percent font-bold text-navy\">44% <i class=\"fa fa-level-up\"></i></div>\n                    <small>8 users</small>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-3\">\n            <div class=\"ibox float-e-margins\">\n                <div class=\"ibox-title\">\n                    <span class=\"label label-danger pull-right\">Low value</span>\n                    <h5>Todo</h5>\n                </div>\n                <div class=\"ibox-content\">\n                    <h1 class=\"no-margins\">5</h1>\n                    <div class=\"stat-percent font-bold text-danger\">38% <i class=\"fa fa-level-down\"></i></div>\n                    <small>In first month</small>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-lg-4\">\n            <div class=\"ibox float-e-margins\">\n                <div class=\"ibox-title\">\n                    <h5>Messages</h5>\n                    <div class=\"ibox-tools\">\n                        <a class=\"collapse-link\">\n                            <i class=\"fa fa-chevron-up\"></i>\n                        </a>\n                        <a class=\"close-link\">\n                            <i class=\"fa fa-times\"></i>\n                        </a>\n                    </div>\n                </div>\n                <div class=\"ibox-content ibox-heading\">\n                    <h3><i class=\"fa fa-envelope-o\"></i> Unread Emails</h3>\n                    <small><i class=\"fa fa-tim\"></i> You have {{ emails.length }} new messages and 16 waiting in draft folder.</small>\n                </div>\n                <div class=\"ibox-content\">\n                    <div class=\"feed-activity-list\">\n                        <div *ngIf=\"showEmails()\">\n                                <div class=\"feed-element\" *ngFor=\"let email of emails\">\n                                        <div>\n                                            <small class=\"pull-right text-navy\">1m ago</small>\n                                            <strong>{{ email.from }}</strong>\n                                            <div>{{ email.subject }}</div>\n                                            <small class=\"text-muted\">{{ email.receivedDateTime }}</small>\n                                        </div>\n                                    </div>\n                        </div>\n                        <!-- Handlebars template for message list -->\n                        <!-- <script id=\"msg-list-template\" type=\"text/x-handlebars-template\">\n                            {{#each messages}}\n                            <div class=\"feed-element\">\n                                <strong id=\"msg-from\">{{this.from.emailAddress.name}}</strong>\n                                <h4 id=\"msg-subject\">{{this.subject}}</h4>                            \n                                <div id=\"msg-preview\">{{this.bodyPreview}}</p>\n                                <small id=\"msg-received\" class=\"class=\"text-muted><em>Received: {{formatDate this.receivedDateTime}}</em></p>\n                            </div>\n                            {{/each}}\n                        </script> -->\n\n                        <!-- <ul>\n                                <li *ngFor=\"let hero of heroes\">\n                                  {{ hero }}\n                                </li>\n                              </ul>\n\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">2m ago</small>\n                                <strong>Jogn Angel</strong>\n                                <div>There are many variations of passages of Lorem Ipsum available</div>\n                                <small class=\"text-muted\">Today 2:23 pm - 11.06.2014</small>\n                            </div>\n                        </div>\n\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">5m ago</small>\n                                <strong>Jesica Ocean</strong>\n                                <div>Contrary to popular belief, Lorem Ipsum</div>\n                                <small class=\"text-muted\">Today 1:00 pm - 08.06.2014</small>\n                            </div>\n                        </div>\n\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">5m ago</small>\n                                <strong>Monica Jackson</strong>\n                                <div>The generated Lorem Ipsum is therefore </div>\n                                <small class=\"text-muted\">Yesterday 8:48 pm - 10.06.2014</small>\n                            </div>\n                        </div>\n\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">5m ago</small>\n                                <strong>Anna Legend</strong>\n                                <div>All the Lorem Ipsum generators on the Internet tend to repeat </div>\n                                <small class=\"text-muted\">Yesterday 8:48 pm - 10.06.2014</small>\n                            </div>\n                        </div>\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">5m ago</small>\n                                <strong>Damian Nowak</strong>\n                                <div>The standard chunk of Lorem Ipsum used </div>\n                                <small class=\"text-muted\">Yesterday 8:48 pm - 10.06.2014</small>\n                            </div>\n                        </div>\n                        <div class=\"feed-element\">\n                            <div>\n                                <small class=\"pull-right\">5m ago</small>\n                                <strong>Gary Smith</strong>\n                                <div>200 Latin words, combined with a handful</div>\n                                <small class=\"text-muted\">Yesterday 8:48 pm - 10.06.2014</small>\n                            </div>\n                        </div> -->\n\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"col-lg-8\">\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"ibox float-e-margins\">\n                        <div class=\"ibox-title\">\n                            <h5>Today's meetings</h5>\n                            <div class=\"ibox-tools\">\n                                <a class=\"collapse-link\">\n                                    <i class=\"fa fa-chevron-up\"></i>\n                                </a>\n                                <a class=\"close-link\">\n                                    <i class=\"fa fa-times\"></i>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"ibox-content\">\n                            <table class=\"table table-hover no-margins\">\n                                <thead>\n                                <tr>\n                                    <th>Subject</th>\n                                    <th>Start Time</th>\n                                    <th>End Time</th>\n                                    <th>Status</th>\n                                </tr>\n                                </thead>\n                                <tbody *ngIf=\"showCalendars()\">\n                                <tr *ngFor=\"let calendar of calendars\">\n                                    <td><small>{{ calendar.subject }}</small></td>\n                                    <td><i class=\"fa fa-clock-o\"></i> {{ calendar.startTime }}</td>\n                                    <td><i class=\"fa fa-clock-o\"></i> {{ calendar.endTime }}</td>\n                                    <td><span class=\"label label-warning\">Invited</span> </td>\n                                </tr>                                \n                                <!-- <tr>                                    \n                                    <td><small>Pending...</small></td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 11:20pm</td>\n                                    <td>Samantha</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 24% </td>                                    \n                                </tr>\n                                \n                                <tr>\n                                    <td><span class=\"label label-warning\">Canceled</span> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 10:40am</td>\n                                    <td>Monica</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 66% </td>\n                                </tr>\n                                <tr>\n                                    <td><small>Pending...</small> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 01:30pm</td>\n                                    <td>John</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 54% </td>\n                                </tr>\n                                <tr>\n                                    <td><small>Pending...</small> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 02:20pm</td>\n                                    <td>Agnes</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 12% </td>\n                                </tr>\n                                <tr>\n                                    <td><small>Pending...</small> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 09:40pm</td>\n                                    <td>Janet</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 22% </td>\n                                </tr>\n                                <tr>\n                                    <td><span class=\"label label-primary\">Completed</span> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 04:10am</td>\n                                    <td>Amelia</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 66% </td>\n                                </tr>\n                                <tr>\n                                    <td><small>Pending...</small> </td>\n                                    <td><i class=\"fa fa-clock-o\"></i> 12:08am</td>\n                                    <td>Damian</td>\n                                    <td class=\"text-navy\"> <i class=\"fa fa-level-up\"></i> 23% </td>\n                                </tr> -->\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <div class=\"ibox float-e-margins\">\n                            <div class=\"ibox-title\">\n                                <h5>Your todo list</h5>\n                                <div class=\"ibox-tools\">\n                                    <a class=\"collapse-link\">\n                                        <i class=\"fa fa-chevron-up\"></i>\n                                    </a>\n                                    <a class=\"close-link\">\n                                        <i class=\"fa fa-times\"></i>\n                                    </a>\n                                </div>\n                            </div>\n                            <div class=\"ibox-content\">\n                                <ul class=\"todo-list m-t small-list\">                                    \n                                    <li>\n                                        <a class=\"check-link\"><i [ngClass]=\"{'fa':true===true,'fa-check-square':isChecked(1) === true, 'fa-square-o':isChecked(1) === false}\" (click)=\"toggleTick(1)\"></i> </a>\n                                        <span [ngClass]=\"{'m-l-s':true===true, 'todo-completed':isChecked(1) === true, '':isChecked(1) === false}\" >Update Jiras</span>\n                                    </li>\n                                    <li>\n                                        <a class=\"check-link\"><i [ngClass]=\"{'fa':true===true,'fa-check-square':isChecked(2) === true, 'fa-square-o':isChecked(2) === false}\" (click)=\"toggleTick(2)\"></i> </a>\n                                        <span [ngClass]=\"{'m-l-s':true===true, 'todo-completed':isChecked(2) === true, '':isChecked(2) === false}\" >Finish Hackathon Project</span>\n                                    </li>\n                                    <li>\n                                        <a class=\"check-link\"><i [ngClass]=\"{'fa':true===true,'fa-check-square':isChecked(3) === true, 'fa-square-o':isChecked(3) === false}\" (click)=\"toggleTick(3)\"></i> </a>\n                                        <span [ngClass]=\"{'m-l-s':true===true, 'todo-completed':isChecked(3) === true, '':isChecked(3) === false}\" >Finish InvoiceControllerServer testing</span>\n                                        <small class=\"label label-primary\"><i class=\"fa fa-clock-o\"></i> 1 mins</small>\n                                    </li>                                     \n                                    <li>\n                                        <a class=\"check-link\"><i [ngClass]=\"{'fa':true===true,'fa-check-square':isChecked(4) === true, 'fa-square-o':isChecked(4) === false}\" (click)=\"toggleTick(4)\"></i> </a>\n                                        <span [ngClass]=\"{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}\" >Be a fiduciary</span>\n                                    </li>         \n                                    <li>\n                                        <a class=\"check-link\"><i [ngClass]=\"{'fa':true===true,'fa-check-square':isChecked(4) === true, 'fa-square-o':isChecked(4) === false}\" (click)=\"toggleTick(4)\"></i> </a>\n                                        <span [ngClass]=\"{'m-l-s':true===true, 'todo-completed':isChecked(4) === true, '':isChecked(4) === false}\" >Join Student of the Markets</span>\n                                        <small class=\"label label-primary\"><i class=\"fa fa-clock-o\"></i> tomorrow</small>\n                                    </li>                                                                                          \n                                </ul>\n                            </div>\n                        </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"ibox float-e-margins\">\n                        <div class=\"ibox-title\">\n                            <h5>Finance Updates</h5>\n                            <div class=\"ibox-tools\">\n                                <a class=\"collapse-link\">\n                                    <i class=\"fa fa-chevron-up\"></i>\n                                </a>\n                                <a class=\"close-link\">\n                                    <i class=\"fa fa-times\"></i>\n                                </a>\n                            </div>\n                        </div>\n                        <!-- <div class=\"ibox-content\">\n                                <h5>Today's meetings</h5>\n                                <div class=\"ibox-tools\">\n                                    <a class=\"collapse-link\">\n                                        <i class=\"fa fa-chevron-up\"></i>\n                                    </a>\n                                    <a class=\"close-link\">\n                                        <i class=\"fa fa-times\"></i>\n                                    </a>\n                                </div>\n                            </div> -->\n                            <div class=\"ibox-content\">\n                                <table class=\"table table-hover no-margins\">\n                                    <thead>\n                                    <tr>\n                                        <th></th>\n                                        <th></th>                                        \n                                    </tr>\n                                    </thead>\n                                    <tbody *ngIf=\"showNews()\">\n                                    <tr *ngFor=\"let newz of news\">\n                                        <!-- <td><small>{{ newz.source }}</small></td> -->\n                                        <td>                                            \n                                            <img class=\"img-news-snap\" src= {{newz.img_url}} alt=\"image\">                                            \n                                        </td>\n                                        <td><a href={{newz.url}} target=\"_blank\"> {{ newz.title }}</a></td>\n                                        <!-- <td> {{ newz.url }}</td> -->\n                                    </tr>  \n                                    </tbody>\n                                    </table>              \n                            <!-- <ul class=\"todo-list m-t small-list\">\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-check-square\"></i> </a>\n                                    <span class=\"m-l-xs todo-completed\">Buy a milk</span>\n\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-square-o\"></i> </a>\n                                    <span class=\"m-l-xs\">Go to shop and find some products.</span>\n\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-square-o\"></i> </a>\n                                    <span class=\"m-l-xs\">Send documents to Mike</span>\n                                    <small class=\"label label-primary\"><i class=\"fa fa-clock-o\"></i> 1 mins</small>\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-square-o\"></i> </a>\n                                    <span class=\"m-l-xs\">Go to the doctor dr Smith</span>\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-check-square\"></i> </a>\n                                    <span class=\"m-l-xs todo-completed\">Plan vacation</span>\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-square-o\"></i> </a>\n                                    <span class=\"m-l-xs\">Create new stuff</span>\n                                </li>\n                                <li>\n                                    <a href=\"#\" class=\"check-link\"><i class=\"fa fa-square-o\"></i> </a>\n                                    <span class=\"m-l-xs\">Call to Anna for dinner</span>\n                                </li>\n                            </ul> -->\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                    \n                <div class=\"col-lg-6\">\n                    <div class=\"ibox float-e-margins\">\n                        <div class=\"ibox-title\">\n                            <h5>Transactions worldwide</h5>\n                            <div class=\"ibox-tools\">\n                                <a class=\"collapse-link\">\n                                    <i class=\"fa fa-chevron-up\"></i>\n                                </a>\n                                <a class=\"close-link\">\n                                    <i class=\"fa fa-times\"></i>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"ibox-content\">\n\n                            <div class=\"row\">\n                                <div class=\"col-lg-6\">\n                                    <table class=\"table table-hover margin bottom\">\n                                        <thead>\n                                        <tr>\n                                            <th style=\"width: 1%\" class=\"text-center\">No.</th>\n                                            <th>Transaction</th>\n                                            <th class=\"text-center\">Date</th>\n                                            <th class=\"text-center\">Amount</th>\n                                        </tr>\n                                        </thead>\n                                        <tbody>\n                                        <tr>\n                                            <td class=\"text-center\">1</td>\n                                            <td> Security doors\n                                            </td>\n                                            <td class=\"text-center small\">16 Jun 2014</td>\n                                            <td class=\"text-center\"><span class=\"label label-primary\">$483.00</span></td>\n\n                                        </tr>\n                                        <tr>\n                                            <td class=\"text-center\">2</td>\n                                            <td> Wardrobes\n                                            </td>\n                                            <td class=\"text-center small\">10 Jun 2014</td>\n                                            <td class=\"text-center\"><span class=\"label label-primary\">$327.00</span></td>\n\n                                        </tr>\n                                        <tr>\n                                            <td class=\"text-center\">3</td>\n                                            <td> Set of tools\n                                            </td>\n                                            <td class=\"text-center small\">12 Jun 2014</td>\n                                            <td class=\"text-center\"><span class=\"label label-warning\">$125.00</span></td>\n\n                                        </tr>\n                                        <tr>\n                                            <td class=\"text-center\">4</td>\n                                            <td> Panoramic pictures</td>\n                                            <td class=\"text-center small\">22 Jun 2013</td>\n                                            <td class=\"text-center\"><span class=\"label label-primary\">$344.00</span></td>\n                                        </tr>\n                                        <tr>\n                                            <td class=\"text-center\">5</td>\n                                            <td>Phones</td>\n                                            <td class=\"text-center small\">24 Jun 2013</td>\n                                            <td class=\"text-center\"><span class=\"label label-primary\">$235.00</span></td>\n                                        </tr>\n                                        <tr>\n                                            <td class=\"text-center\">6</td>\n                                            <td>Monitors</td>\n                                            <td class=\"text-center small\">26 Jun 2013</td>\n                                            <td class=\"text-center\"><span class=\"label label-primary\">$100.00</span></td>\n                                        </tr>\n                                        </tbody>\n                                    </table>\n                                </div>\n                                <div class=\"col-lg-6\">\n                                    <div id=\"world-map\" style=\"height: 300px;\"></div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ 325:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(137);
+module.exports = __webpack_require__(130);
+
+
+/***/ }),
+
+/***/ 341:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return News; });
+var News = (function () {
+    function News(source, title, url, img_url) {
+        this.source = source;
+        this.title = title;
+        this.url = url;
+        this.img_url = img_url;
+    }
+    return News;
+}());
+
+//# sourceMappingURL=news.js.map
+
+/***/ }),
+
+/***/ 81:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_models_email__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_models_calendar__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_models_news__ = __webpack_require__(341);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/**
+ * Created by andrew.yang on 5/18/2017.
+ */
+
+
+
+
+
+//declare function notify(message:string):any;
+var HomeComponent = (function () {
+    function HomeComponent(httpClient) {
+        this.httpClient = httpClient;
+        this.emails = new Array();
+        this.calendars = new Array();
+        this.news = new Array();
+        this.happy = true;
+        this.tick = new Array();
+        this.auth_token = "Bearer EwBwA8l6BAAURSN/FHlDW5xN74t6GzbtsBBeBUYAAaGJlH8t3iZh1kihM/rTvhT2DVdBGjMAlPTnEjoBpgwKaM4zVVVFeIQFwHhrDwWdK/P2pC8xEYjmSGK2BMZyky3lx4FuvtglDOdxTrzF1tw5ehhW7rBpqCB03F9J1VotmWZa0L1PGbzuGXgIN895vDux9jvuxK3Js%2barrwbE6iBtRuFdvqBH0926cd0rp78p%2bSgALx8kUqznJXPr8YfSwRyJECxrinEyoS8Xp/MIzvRXARFnwudd1WRrzWe15XBOSTHLe%2bKe0yR9IkfLCAvH6caRDyFVNsJMg5pH15mxGERomPGZ%2b7IGN/mk9E5WHdYAXy5khRVzHooE1J8FgWHj1XwDZgAACDjZ%2bn1ezwTbQAKYw7Hi2rVYX9WxB9HumbmG0r1D7DXpVZisND/4e07OmBP5CDruuTLU5niryiizUu6xVLJNQMDwSMnCl5U6IIrqRj9lBRj/nbRyCUt3kW2CYzeq2hLBewxYPd2O5Ih0E1N0B/ixQv5EVQBeTY22JWNet3EadmWuVhGNfpF9u6ZV3JDZOQfPSMqumR/MzhWwg5nMZdXMmqAK9xE9ZkmPgXbbmo2vB9KVvYk%2bjKaIjxrezVCIjJuyJ64YHo5jH8U8ls733MaNZe5lZyD2m%2bJBY5dxZea2pUZSrOd1UH/AKWrmAXLfmmchWHV9TPTs17842LLakrtHDPSE9jA6kcN8jibrxzz%2bnsWnBnxWIqsDm2SDnUUoQtzHtU9E2zQ8MVsMWoDxU0GiG6Gohuw58AuFlBvcJDMx8UNNYp2hAKqlrx37QPPUVGNbOfZc6YmknWMO%2byaq2EQVtjzKRdzQseR37IhOjnVnY62iu1YL0FfjpLrCGg41pCDYFF/8JJ3BzZtJnSOmtoVbiT7pUIRa7IZ2eM/f4f8vfWzhewMdZHcQPH6h4C9sk2kmCGZdteaXRlhgnXvgowXTZ3mDNeW4W94XFjX23jxYyVBEnsPh7CbjWxltLzkEyb9Zw1QkVzr/uYXEsuyx3gQ7wicPCa09PtzE/18qVaX6qSTAxR9KkUgDtzqhHho15it7cMlV249ExoOUx4vtsFBMejX2WR4vUWyt6jccUKJFXxWsYyVrNReLccQUpAGl2zIcL6MwBlPA59lvXzeCAg%3d%3d";
+        this.heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        this.getAndSetEmails();
+        this.getAndSetCalendarevents();
+        this.getFinanceNews();
+        this.tick[1] = false;
+        this.tick[2] = true;
+        this.tick[3] = false;
+        this.tick[4] = false;
+    };
+    HomeComponent.prototype.showEmails = function () {
+        if (this.emails && this.emails.length > 0) {
+            console.log(this.emails);
+            return true;
+        }
+        else {
+            console.log('ERRORR ---------');
+            return false;
+        }
+    };
+    HomeComponent.prototype.showCalendars = function () {
+        if (this.calendars && this.calendars.length > 0) {
+            console.log(this.calendars);
+            return true;
+        }
+        else {
+            console.log('ERRORR ---------');
+            return false;
+        }
+    };
+    HomeComponent.prototype.showNews = function () {
+        if (this.news && this.news.length > 0) {
+            console.log(this.news);
+            return true;
+        }
+        else {
+            console.log('ERRORR ---------');
+            return false;
+        }
+    };
+    HomeComponent.prototype.getAndSetEmails = function () {
+        var _this = this;
+        //console.log(sessionStorage.getItem('accessToken'));   
+        //const auth_token = 'Bearer ' + sessionStorage.getItem('accessToken');        
+        console.log("Auth: " + this.auth_token);
+        //'Origin': 'http://localhost:4200',
+        //'Referer': 'http://localhost:4200/',
+        //'SdkVersion': 'graph-js-1.2.0',
+        //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
+        var headersDict = {
+            'Authorization': this.auth_token,
+        };
+        var url = "https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages?$top=10&$select=subject,from,receivedDateTime,isRead&$orderby=receivedDateTime%20DESC";
+        var reqOptions = {
+            headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpHeaders */](headersDict),
+        };
+        //console.log("" + );
+        this.httpClient.get(url, reqOptions).subscribe(function (res) {
+            //console.log(res);
+            //var items = JSON.stringify(res);
+            console.log(res);
+            var emailResponse = res;
+            console.log(emailResponse.value);
+            var i = 0;
+            emailResponse.value.forEach(function (element) {
+                console.log('------------------------------------');
+                console.log(element.subject);
+                console.log(element.from.emailAddress.name);
+                console.log('------------------------------------');
+                _this.emails[i] = new __WEBPACK_IMPORTED_MODULE_2_app_models_email__["a" /* Email */](element.from.emailAddress.name, element.receivedDateTime, element.subject);
+                i++;
+            });
+            //notify("works!");
+            /* $('#inbox-status').text('Here are the 10 most recent messages in your inbox.');
+             var templateSource = $('#msg-list-template').html();
+             var template = Handlebars.compile(templateSource);
+ 
+             var msgList = template({messages: messages});
+             $('#message-list').append(msgList);*/
+        }, function (err) {
+            console.log("Eror:" + err);
+        });
+        this.email_count = this.emails.length;
+    };
+    HomeComponent.prototype.getAndSetCalendarevents = function () {
+        var _this = this;
+        var headersDict = {
+            'Authorization': this.auth_token,
+        };
+        var url = "https://graph.microsoft.com/v1.0/me/events?$top=10&$select=subject,start,end,createdDateTime&$orderby=createdDateTime%20DESC";
+        var reqOptions = {
+            headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpHeaders */](headersDict),
+        };
+        //console.log("" + );
+        this.httpClient.get(url, reqOptions).subscribe(function (res) {
+            //console.log(res);
+            //var items = JSON.stringify(res);
+            console.log(res);
+            var calResponse = res;
+            var i = 0;
+            //console.log(emailResponse.value);
+            calResponse.value.forEach(function (element) {
+                var d = new Date(element.start.dateTime);
+                var e = new Date(element.end.dateTime);
+                _this.calendars[i] = new __WEBPACK_IMPORTED_MODULE_3_app_models_calendar__["a" /* Calendar */](element.subject, d.toLocaleTimeString(), e.toLocaleTimeString());
+            });
+            //notify("works!");
+            /* $('#inbox-status').text('Here are the 10 most recent messages in your inbox.');
+             var templateSource = $('#msg-list-template').html();
+             var template = Handlebars.compile(templateSource);
+ 
+             var msgList = template({messages: messages});
+             $('#message-list').append(msgList);*/
+        }, function (err) {
+            console.log("Eror:" + err);
+        });
+        this.event_count = this.calendars.length;
+    };
+    HomeComponent.prototype.getFinanceNews = function () {
+        var _this = this;
+        //mArticles:Array();
+        var api_key = 'bcf9c9745a204c0991e64b9e5d73f142';
+        var i = 0;
+        this.httpClient.get('https://newsapi.org/v2/top-headlines?sources=financial-post&apiKey=' + api_key).subscribe(function (data) {
+            _this.mArticles = data['articles'];
+            //console.log(data['articles']);
+            _this.mArticles.forEach(function (element) {
+                _this.news[i] = new __WEBPACK_IMPORTED_MODULE_4_app_models_news__["a" /* News */](element.source.name, element.title, element.url, element.urlToImage);
+                console.log(" " + element.source.name + " " + element.title);
+                i++;
+            });
+        });
+    };
+    HomeComponent.prototype.isChecked = function (status) {
+        return this.tick[status];
+    };
+    HomeComponent.prototype.toggleTick = function (status) {
+        this.tick[status] = !this.tick[status];
+    };
+    HomeComponent.prototype.checkTodo = function () { };
+    return HomeComponent;
+}());
+HomeComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Component */])({
+        selector: 'home',
+        template: __webpack_require__(232),
+        styles: [__webpack_require__(213)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpClient */]) === "function" && _a || Object])
+], HomeComponent);
+
+var _a;
+//# sourceMappingURL=home.component.js.map
+
+/***/ })
+
+},[325]);
+//# sourceMappingURL=main.bundle.js.map

@@ -6,8 +6,11 @@ import {smoothlyMenu} from "../../app.helpers";
     templateUrl: 'topnavbar.component.html'
 })
 export class Topnavbar {
+    date:String;
     ngOnInit() {
-
+        var abc:Date = new Date();
+        var num = abc.getDate();        
+        this.date = "" + num;
     }
     toggleNavigation(): void {
         jQuery("body").toggleClass("mini-navbar");
